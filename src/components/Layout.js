@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 
 const Layout = (props) => (
-    <Container>
+    <Container styles={{height: "100vh;"}}>
         {props.children}
     </Container>
 )

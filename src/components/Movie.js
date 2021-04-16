@@ -1,44 +1,56 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import Accordion from 'react-bootstrap/Accordion';
+import styled from 'styled-components';
+
+const Styles = styled.div`
+    .card {
+        width:300px;
+    }
+
+    @media (max-width: 480px) {
+        .card {
+          width:250px;
+        }
+
+    @media (max-width: 300px) {
+        .card {
+          width:230px;
+        }
+`;
 
 const IMG_API = "https://image.tmdb.org/t/p/w1280"
 const setVoteClass = (vote) => {
     if (vote >= 8) {
-        return 'green'
+        return 'border-success'
     } else if (vote >= 6 ) {
-        return 'orange'
+        return 'border-warning'
     } else {
-        return 'red';
+        return 'border-danger';
     }
 }
 
 const Movie = ( { title, poster_path, overview, vote_average } ) => {
     return (
-        // <div className='movie'>
-        //     <img src={IMG_API + poster_path} alt={title} />
-        //     <div className='movie-info'>
-        //         <h3>{title}</h3>
-        //         <span className={`tag ${setVoteClass(vote_average)}`}>
-        //             {vote_average}
-        //         </span>
-        //     </div>
-        //     <div className='movie-over'>
-        //         <p>{overview}</p>
-        //     </div>
-
-        // </div>
         <>
-        <Card style={{ width: '300px' }} className="mt-2 mr-2 ml-2 mb-2">
+        <Styles>
+        <Accordion defaultActiveKey="1">
+        <Card  className="mt-2 mr-2 ml-2 mb-2 shadow-sm mb-5 bg-white rounded responsive=sm ">
         <Card.Img variant="top" src={IMG_API + poster_path} alt={title} />
             <Card.Body className="d-flex justify-content-between align-items-baseline">
-                <Card.Title className="m-0">{title}</Card.Title>
-                <Card.Subtitle>{vote_average}</Card.Subtitle>
+                <Accordion.Toggle as={Card.Title} type="button" className="stretched-link" eventKey="0">
+                  {title}
+                </Accordion.Toggle>
+                <Card.Subtitle className={`border rounded p-2 ${setVoteClass(vote_average)}`}>{vote_average}</Card.Subtitle>
             </Card.Body>
-            <Card.Body>
-                <Card.Text>{overview}</Card.Text>
-            </Card.Body>
+            <Accordion.Collapse eventKey="0">
+                <Card.Body>
+                    {overview}
+                </Card.Body>
+            </Accordion.Collapse>
         </Card>
+        </Accordion>
+        </Styles>
         </>
     )
 }

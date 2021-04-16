@@ -20,7 +20,7 @@ const Styles = styled.div`
 
 const Footer = () => (
     <Styles>
-        <ModalFooter><a href='https://github.com/romnance?tab=repositories'>Copyright &#169; 2021 GitHub</a></ModalFooter>
+        <ModalFooter className="footer"><a href='https://github.com/romnance?tab=repositories'>Copyright &#169; 2021 GitHub</a></ModalFooter>
     </Styles>
   );
   

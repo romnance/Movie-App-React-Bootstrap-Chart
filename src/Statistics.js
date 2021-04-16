@@ -10,7 +10,7 @@ const moviestat = {
         label: 'Number of movies released',
         fill: false,
         lineTension: 0.5,
-        backgroundColor: 'limegreen',
+        backgroundColor: 'green',
         borderColor: 'ghostwhite',
         borderWidth: 2,
         data: [371, 356, 480, 506, 551, 547, 608, 632, 607, 520, 538, 601, 669, 689, 708, 706, 737, 740, 873, 792, 329]
@@ -27,9 +27,22 @@ const moviestat = {
         label: 'Amount of movies',
         fill: false,
         lineTension: 0.5,
-        backgroundColor: 'orange',
+        backgroundColor: [
+          'rgb(210,180,140)',
+          'rgb(188,143,143)',
+          'rgb(255,228,181)',
+          'rgb(255,222,173)',
+          'rgb(255,218,185)',
+          'rgb(255,228,225)',
+          'rgb(255,240,245)',
+          'rgb(250,240,230)',
+          'rgb(253,245,230)',
+          'rgb(255,239,213)',
+          'rgb(255,245,238)',
+          'rgb(245,255,250)'
+      ],
         borderColor: 'ghostwhite',
-        borderWidth: 2,
+        borderWidth: 1,
         data: [ 5404, 2383, 2373, 1151, 1078, 1061, 655, 608, 202, 197, 85, 76, 44, 4, 1]
       }
     ]
@@ -50,7 +63,6 @@ const moviestat = {
             },
             legend:{
               display:false,
-              position:'right'
             }
           }}
         />
@@ -66,7 +78,6 @@ const moviestat = {
             },
             legend:{
               display:false,
-              position:'right'
             }
           }}
         />
